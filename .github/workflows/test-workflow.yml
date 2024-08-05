@@ -20,7 +20,7 @@ jobs:
         id: latest-web
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          owner: jellyfin
+          owner: ktheticdev
           repo: jellyfin-web
           excludes: prerelease, draft
         
@@ -28,14 +28,14 @@ jobs:
         id: latest-web-prereleasee
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          owner: jellyfin
+          owner: ktheticdev
           repo: jellyfin-web
           excludes: release, draft
           
       - name: Clone jellyfin-web
         uses: sudosubin/git-clone-action@v1.0.1
         with:
-          repository: 'jellyfin/jellyfin-web'
+          repository: 'ktheticdev/jellyfin-web'
           platform: 'github'
           path: 'jellyfin-web'
           ref: ${{ steps.latest-web.outputs.release }}
@@ -43,7 +43,7 @@ jobs:
       - name: Clone jellyfin-web PreRelease
         uses: sudosubin/git-clone-action@v1.0.1
         with:
-          repository: 'jellyfin/jellyfin-web'
+          repository: 'ktheticdev/jellyfin-web'
           platform: 'github'
           path: 'jellyfin-web-prerelease'
           ref: ${{ steps.latest-web-prereleasee.outputs.release }}
